@@ -42,7 +42,6 @@ export class PainelComponent implements OnInit, OnDestroy {
       this.atualizaRodada()
     }else {
       this.tentativas--
-      alert("Você errou a tradução!")
       if(this.tentativas === -1){
         this.encerrarJogo.emit('derrota')
       }

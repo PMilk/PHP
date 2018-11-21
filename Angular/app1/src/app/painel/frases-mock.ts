@@ -4,6 +4,5 @@ export const FRASES: Frase[] = [
     { fraseEng: 'I like to learn' , frasePtBr: 'Eu gosto de aprender'},
     { fraseEng: 'I wacth tv' , frasePtBr: 'Eu assisto tv'},
     { fraseEng: 'How are you?' , frasePtBr: 'Como vai você?'},
-    { fraseEng: 'I eat bread' , frasePtBr: 'Eu como pão'},
-    { fraseEng: 'I eat marijuana' , frasePtBr: 'Eu como maconha'}
+    { fraseEng: 'I eat bread' , frasePtBr: 'Eu como pão'}
 ]
