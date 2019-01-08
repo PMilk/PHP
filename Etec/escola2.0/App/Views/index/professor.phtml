@@ -1,0 +1,74 @@
+<?php if(isset($_GET['cad']) && $_GET['cad'] == 'ok'){ ?>
+<div class="alert alert-success text-center" role="alert">
+  Cadastrado com sucesso!
+</div>
+<?php } ?>
+<?php if(isset($_GET['cad']) && $_GET['cad'] == 'erro'){ ?>
+<div class="alert alert-danger text-center" role="alert">
+ Erro no cadastro, verifique sua conexão ou os campos!
+</div>
+<?php } ?>
+<div class="text-center">
+  <h1 class="h2">Cadastro de Professores</h1>
+</div>
+<hr>
+
+<div class="container border">
+<form method="post" action="/registrar?acao=professor"> 
+    <div class="row  pt-4">
+        
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inputNome" class="sr-only" >Nome do Professor:</label>
+                    <input class="form-control" type="text" id="inputNome" placeholder="Nome do Professor" autofocus required name="nome">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="inputEscolaridade" class="sr-only" >Matéria do Professor:</label>
+                    <select class="custom-select" id="inputGroupSelect01" required name="materia">
+                        <option value="Matemática" selected>Matemática</option>
+                        <option value="Português">Português</option>
+                        <option value="Geografia">Geografia</option>
+                        <option value="Biológia">Biológia</option>
+                        <option value="Redação">Redação</option>
+                        <option value="História">História</option>
+                        <option value="Inglês">Inglês</option>
+                        <option value="Física">Física</option>
+                        <option value="Química">Química</option>
+                        <option value="Educação Física">Educação Física</option>
+                        <option value="Informática">Informática</option>
+                    </select>
+                </div>
+            </div>     
+        
+            <div class="container-fluid pb-4">
+                <button class="btn btn-danger col-md-5 float-left pt-3 pb-3">Cancelar</button>
+                <button class="btn btn-success col-md-5 float-right pt-3 pb-3">Cadastrar Professor</button>
+            </div>
+        </div>
+            
+                
+    </form>
+
+     <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">NOME</th>
+      <th scope="col">MATÉRIA</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach ($this->view->professores as $key => $professor) { ?>
+    <tr>
+      <th scope="row"><?= ($key +1 ) ?></th>
+      <td><?= $professor['nome'] ?></td>
+      <td><?= $professor['materia'] ?></td>
+    </tr>
+<?php } ?>
+
+  </tbody>
+</table>
+
+</div>

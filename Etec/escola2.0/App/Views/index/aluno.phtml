@@ -1,10 +1,21 @@
-<h1 class="h2">Cadastro de Alunos</h1>
+<?php if(isset($_GET['cad']) && $_GET['cad'] == 'ok'){ ?>
+<div class="alert alert-success text-center" role="alert">
+  Cadastrado com sucesso!
+</div>
+<?php } ?>
+<?php if(isset($_GET['cad']) && $_GET['cad'] == 'erro'){ ?>
+<div class="alert alert-danger text-center" role="alert">
+ Erro no cadastro, verifique sua conexão ou os campos!
+</div>
+<?php } ?>
+<div class="text-center">
+	<h1 class="h2">Cadastro de Alunos</h1>
+</div>
 <hr>
 
 <div class="container border">
-<form method="post" action="cadastros.php?action=aluno"> 
+<form method="post" action="/registrar?acao=aluno"> 
     <div class="row  pt-4">
-        
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="inputNome" class="sr-only" >Nome do Aluno:</label>
@@ -54,7 +65,9 @@
             
                 
     </form>
-
+    <br />
+    <br />
+    <h3>Alunos cadastrados:</h3>
     <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -63,40 +76,37 @@
       <th scope="col">NOME</th>
       <th scope="col">DATA DE NASCIMENTO</th>
       <th scope="col">ESCOLARIDADE</th>
+      <th scope="col">Ações</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>123123</td>
-      <td>PAULO LEITE COSTA</td>
-      <td>14/10/2001</td>
-      <td>3° ANO DO ENSINO MÉDIO</td>
+<?php foreach ($this->view->alunos as $key => $aluno) { ?>
+    <tr >
+      <th scope="row"><?= ($key+1) ?></th>
+      <td><?= $aluno['rm'] ?></td>
+      <td><?= $aluno['nome'] ?></td>
+      <td><?= $aluno['data'] ?></td>
+      <td><?= $aluno['escolaridade'] ?></td>
+      <form method="post" action="/remover?acao=aluno">
+          <td><button onclick="return remover()" class="btn btn-danger" value="<?= $aluno['id'] ?>" name="id">Apagar</button></td>
+      </form>
     </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>123123</td>
-      <td>PAULO LEITE COSTA</td>
-      <td>14/10/2001</td>
-      <td>3° ANO DO ENSINO MÉDIO</td>
-    </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>123123</td>
-      <td>PAULO LEITE COSTA</td>
-      <td>14/10/2001</td>
-      <td>3° ANO DO ENSINO MÉDIO</td>
-    </tr>
-     <tr>
-      <th scope="row">1</th>
-      <td>123123</td>
-      <td>PAULO LEITE COSTA</td>
-      <td>14/10/2001</td>
-      <td>3° ANO DO ENSINO MÉDIO</td>
-    </tr>
-   
+
+<?php } ?>
+
+    
   </tbody>
 </table>
 
 
 </div>
+<script type="text/javascript">
+  function remover() {
+    if(confirm('Você deseja mesmo remover?')){
+      return true;
+    }else {
+      return false
+    }
+  }
+
+</script>

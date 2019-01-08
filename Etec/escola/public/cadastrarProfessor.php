@@ -40,4 +40,32 @@
             
                 
     </form>
+
+     <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">NOME</th>
+      <th scope="col">MATÉRIA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>PAULO LEITE COSTA</td>
+      <td>FAXINEIRO</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>PAULO LEITE COSTA</td>
+      <td>FAXINEIRO</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>PAULO LEITE COSTA</td>
+      <td>FAXINEIRO</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
